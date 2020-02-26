@@ -12,9 +12,53 @@ provides us with the faculties to explore and imagine the otherwise unreachable 
 
 
 ## Tech Stack
-* [Hugo: Static Site Generator](https://gohugo.io/)
-* [Cupper Theme](https://themes.gohugo.io/cupper-hugo-theme/)
-* [PaperCSS](https://www.getpapercss.com/)
-* [Katex: Mathematical Typesetting](https://katex.org/)
-* [Processing: Animations](https://processing.org/)
-* [Processing.js: Rendering Animations on the Web](http://processingjs.org/)
+*   [Hugo: Static Site Generator](https://gohugo.io/)
+*   [Cupper Theme](https://themes.gohugo.io/cupper-hugo-theme/)
+*   [PaperCSS](https://www.getpapercss.com/)
+    Give the site a hand-written appearance.
+*   [Katex](https://katex.org/)
+    Render math equations.
+*   [Processing](https://processing.org/)/[Processing.js](http://processingjs.org/)
+    Used to create the animations for the site.    
+
+
+
+### Processing Conventions
+Because processing.js is not able to support external libraries, the programs for the
+website must be written without any external libraries.
+
+#### Setup: Coordinates and Framerate
+*   Move the coordinates to the center of the screen.
+    ```processing
+    void centerCoors() {
+      // Make (0, 0) the origin.
+      translate(width/2, height/2);
+      scale(1.0, -1.0);
+    }
+    ```
+    Reference: [Processing Docs: 2D Transformations](https://processing.org/tutorials/transform2d/).
+
+*   The framerate should be set to 50 fps. This framerate is low enough that virtually any
+    computer can achieve it, and it makes calculations involving time much easier. If, you
+    need to use a different framerate for any reason be sure to make a note of it in the 
+    [units comment](#Real-World Units).
+    ```processing
+    void setup() {
+      frameRate(50);
+      // The rest of your setup.
+    }
+    ```
+    Reference: [Processing Docs: frameRate](https://processing.org/reference/frameRate_.html).
+
+#### Real-World Units
+*   At the very top of each sketch, the scale for the units should be specified in a **units comment**.
+    Just below the units comment save the fps and the amount of real time per frame.
+    ```processing
+    \* Units Comment
+      1 meter = 20 px
+      1 second = 50 frames
+      ... etc.
+    *\
+    int fps = 50;           // frames per second
+    float spf = 1.0 / fps;  // seconds per frame
+    ```
