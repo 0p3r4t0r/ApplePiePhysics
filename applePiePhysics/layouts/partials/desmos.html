@@ -1,3 +1,10 @@
 {{ if eq $.Site.Params.desmos true }}
+{{ printf "<!-- Load the Desmos API -->" | safeHTML }}
 <script src="https://www.desmos.com/api/v1.4/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+<style>
+  *[class^="dcg-"] {
+    background-color: transparent;
+    margin-top: 0;
+  }
+</style>
 {{ end }}

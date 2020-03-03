@@ -108,7 +108,7 @@ At the other end of the train. Another scientist is thinking a little bit
 differently. She's been dilligently plotting the position, velocity, and
 acceleration of the train while we wittled away at our calculations.
 
-{{% desmos %}}
+{{< desmos id="calculator" >}}
 <script>
   var elt = document.getElementById('calculator');
   var calculator = Desmos.GraphingCalculator(elt);
@@ -116,6 +116,5 @@ acceleration of the train while we wittled away at our calculations.
       {id:'dg-a', latex:'a(t)=a_0'},
       {id:'slider-a_0', latex:'a_0=1', sliderBounds: {min: 0, max: 5, step: 1}}
     ]);
-  console.log('Here is my graph:', elt);
 </script>
-{{% /desmos %}}
+{{< /desmos >}}
