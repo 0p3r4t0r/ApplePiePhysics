@@ -11,16 +11,28 @@ While most of the cosmos remains beyond the reach of our lifetimes, the miracle 
 provides us with the faculties to explore and imagine the otherwise unreachable cosmos.
 
 
+
+
 ## Tech Stack
 *   [Hugo: Static Site Generator](https://gohugo.io/)
 *   [Cupper Theme](https://themes.gohugo.io/cupper-hugo-theme/)
-*   [PaperCSS](https://www.getpapercss.com/)
-    Give the site a hand-written appearance.
 *   [Katex](https://katex.org/)
-    Render math equations.
 *   [Processing](https://processing.org/)/[Processing.js](http://processingjs.org/)
-    Used to create the animations for the site.    
+*   [Desmos Graphing API (Hopefully)](https://www.desmos.com/api/v1.4/docs/index.html)
 
+
+
+
+## Conventions
+Rules schmules, but organization matters.
+
+
+### Filename Conventions
+*   Directories in the content folder should have names corresponding to those
+    specified in the nav with all spaces replaced with hyphens.
+
+*   Lessons in the content folder should have names of the form 
+    `lesson<number>_descriptionOfTheLesson.<filename extension>`.
 
 
 ### Processing Conventions
