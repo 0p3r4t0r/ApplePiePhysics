@@ -2,7 +2,7 @@ baseURL: https://applepiephysics.com
 languageCode: en-us
 defaultContentLanguage: en
 title: Apple Pie Physics 
-theme: cupper
+theme: cupper-hugo-theme
 googleAnalytics: UA-123456789-1
 disqusShortname: yourdiscussshortname
 enableGitInfo: true
@@ -31,7 +31,10 @@ menu:
       weight: 1
     - name: Physics 101
       url: /physics-101/
-      weight: 1
+      weight: 2
+    - name: Brainstorms
+      url: /brainstorms/
+      weight: 0
 
 markup:
   defaultMarkdownHandler: goldmark
