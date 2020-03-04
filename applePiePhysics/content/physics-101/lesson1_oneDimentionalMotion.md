@@ -9,8 +9,8 @@ at low speed. No one knows where it came from and no one knows where
 it's going. We've sent a team of scientists to find out more about the train
 and they've been living on board for several weeks now.
 
-As far as we can tell <u>the velocity of the train is constant</u> and <u>the
-track along which the train travels is perfectly straight</u>. Our scientists
+As far as we can tell **the velocity of the train is constant** and **the
+track along which the train travels is perfectly straight**. Our scientists
 have been recording the position of the train for a number of weeks now, 
 but they're starting to run out of space in their logs.
 
@@ -22,25 +22,25 @@ the train is going to be.*
 
 ## Describing the Train's Motion
 Since the train travels in a straight line, we know it's only moving in one
-direction. Let's call that direction \\( x \\).
+direction. Let's call that direction \\( p \\).
 If we call the time and place we started to observe the train \\( t_0 \\) and
-\\( x_0 \\) respectively we can write the initial position of our train as... 
+\\( p_0 \\) respectively we can write the initial position of our train as... 
 
 \\[
-x(t_0) = x_0 \tag{1.1}
+p(t_0) = p_0 \tag{1.1}
 \\]
 
-So equation 1.1 simply expressed the idea that the position \\( (x) \\) at the
+So equation 1.1 simply expressed the idea that the position \\( (p) \\) at the
 time when we started \\( (t_0) \\) is equal to the position where we first
-found the train \\( ( x_0 ) \\).
+found the train \\( ( p_0 ) \\).
 
 
 Now as time goes on the distance from our starting point increases. Since our
-train is moving at a constant velocity \\( (v) \\), the distance it travels 
+train is moving at a constant velocity \\( (v_0) \\), the distance it travels 
 \\( (d) \\) as funciton of time \\( (t) \\) can be written as ...
 
 \\[
-d(t) = vt \tag{1.2}
+d(t) = v_0t \tag{1.2}
 \\]
 
 Then the position of the train across time must be, wherever it was at the 
@@ -48,7 +48,7 @@ begining *plus its distance from that point.* Combining equations 1.1 and 1.2
 leads us to equation 1.3 below.
 
 \\[
-x(t) = x_0 + v_0 t \tag{1.3}
+p(t) = p_0 + v_0 t \tag{1.3}
 \\]
 
 Suddenly we notice that the velocity of the train has started to change. It
@@ -72,7 +72,7 @@ of its *initial velocity* \\( (v_0) \\).
 Mathematically speaking we want to replace 1.3 with 1.5 below.
 
 \\[
-x(t) = x_0 + \overline{v}(t) \cdot t \tag{1.5}
+p(t) = p_0 + \overline{v}(t) \cdot t \tag{1.5}
 \\]
 
 The average velocity is equal to the average of our velocity at time \\( t \\) 
@@ -91,7 +91,7 @@ Substituting 1.4 into 1.6 yields ...
 Finally plugging 1.7 back into 1.5 leads us to ...
 
 \\[
-x(t) = x_0 + v_0 t + \dfrac{1}{2}a_0t^2 \tag{1.8}
+p(t) = p_0 + v_0 t + \dfrac{1}{2}a_0t^2 \tag{1.8}
 \\]
 
 {{% note %}}
@@ -103,59 +103,231 @@ position across time when the acceleration is zero!
 
 
 
-## Graphically Checking the 1-D Motion Equation
+## Verifying the 1-D Motion Equation Graphically
 At the other end of the train. Another scientist has been thinking a bit
 differently. She noticed the train's change in velocity at about the same time
-we did, and ever since she's been carefully plotting the acceleration,
-velocity, and postion of the train across time. She's even gone one step
-further and summarized her results in the table below. Let's see how our
-formula compares with the data ....
+we did, has been carefully plotting the acceleration, velocity, and postion of
+the train across time ever since. She's even taken the time to graph some of
+her results. Let's see how our formula compares with some of her data ....
 
-### Acceleration vs. Time Graph: \\( a(t) = a_0 \\)
+
+### Acceleration vs. Time Graph
+Try and plot a curve to fit the data on the graph below. Click the 
+\\( \Large{>>} \\) symbol in the top left to display the expressions.
+
 {{< desmos id="dcg-graph1" >}}
 <script>
   var dcgGraph1 = {
     elt: document.getElementById('dcg-graph1'),
     opts: { 
-      expressions: false,
+      expressionsCollapsed: true,
       xAxisLabel: 'Time',
+      xAxisArrowMode: Desmos.AxisArrowModes.BOTH,
       yAxisLabel: 'Acceleration',
+      yAxisArrowMode: Desmos.AxisArrowModes.BOTH,
+      lockViewport: true,
     },
     exprs: [
-      {id:'dcg-a', latex:'a(t) = a_0 \\left\\{0<t\\right\\}', lineStyle: Desmos.Styles.DOTTED, secret: true},
-      {id:'dcg-slider-a_0', latex:'a_0=1', sliderBounds: {min: 0, max: 5, step: 1}, secret: true},
+      { id:'dcg-a',
+        latex:'a(t) = a_0 \\left\\{0<t\\right\\}', 
+        lineStyle: Desmos.Styles.DOTTED,
+        secret: true,
+      },
+      { id:'dcg-value-a_0',
+        latex:'a_0=1',
+        secret: true,
+      },
+      // show point (t_0, a_0)
+      { id: 'dcg-point-a_0',
+        latex: '(0, a_0)',
+        label: '`(t_0,\\ a_0)`',
+        showLabel: true,
+        labelSize: Desmos.LabelSizes.LARGE,
+        color: Desmos.Colors.BLACK,
+        secret: true,
+      },
     ],
+    bounds: {
+      left: -1,
+      right: 10,
+      bottom: -1,
+      top: 10,
+    }
   }
   var calculator = Desmos.GraphingCalculator(dcgGraph1.elt, dcgGraph1.opts);
+  calculator.setMathBounds(dcgGraph1.bounds);
   calculator.setExpressions(dcgGraph1.exprs);
 </script>
 {{< /desmos >}}
 
-### Velocity vs. Time Graph: \\( v(t) = v_0 + a_0t \\)
+This data tells us that the acceleration of the train is *constant*.
+Mathematically speaking that's ...
+
+\\[ a(t) = 1 \tag{1.9} \\]
+
+
+### Velocity vs. Time Graph:
+Now try and plot a function that will match our data for velocity (check
+equation 1.4 above if you find yourself in need of some inspiration).
+
 {{< desmos id="dcg-graph2" >}}
 <script>
-  var elt = document.getElementById('dcg-graph2');
-  var calculator = Desmos.GraphingCalculator(elt, dcg_graph1Opts);
-  calculator.setExpressions([
-      {id:'dcg-v', latex:'v(t) = v_0 + a_0t', lineStyle: Desmos.Styles.DOTTED, secret: true},
-      {id:'dcg-slider-a_0', latex:'a_0=1', sliderBounds: {min: 0, max: 5, step: 1}, secret: true},
-      {id:'dcg-slider-v_0', latex:'v_0=1', sliderBounds: {min: 0, max: 5, step: 1}, secret: true},
-    ]);
+  var opts = dcgGraph1.opts
+  opts['yAxisLabel'] = 'Velocity'
+  var dcgGraph2 = {
+    elt: document.getElementById('dcg-graph2'),
+    opts: opts,
+    exprs: [
+      { id:'dcg-v',
+        latex:'v(t) = v_0 + a_0t \\left\\{0<t\\right\\}',
+        lineStyle: Desmos.Styles.DOTTED,
+        secret: true,
+      },
+      { id:'dcg-value-v_0',
+        latex:'v_0=1',
+        secret: true,
+      },
+      // value for a_0
+      dcgGraph1.exprs[1],
+      // show point (t_0, v_0)
+      { id: 'dcg-point-v_0',
+        latex: '(0, v_0)',
+        label: '`(t_0,\\ v_0)`',
+        showLabel: true,
+        labelSize: Desmos.LabelSizes.LARGE,
+        color: Desmos.Colors.BLACK,
+        secret: true,
+      },
+    ],
+  }
+  var calculator = Desmos.GraphingCalculator(dcgGraph2.elt, dcgGraph2.opts);
+  calculator.setMathBounds(dcgGraph1.bounds);
+  calculator.setExpressions(dcgGraph2.exprs);
 </script>
 {{< /desmos >}}
 
-### Position vs. Time Graph: \\( p(t) = p_0 + v_0t + \frac{1}{2}a_0t^2 \\)
+From this graph we can read off our initial velocity \\( (v_0) \\) and use
+the acceleration data from the graph above to reconstruct equation 1.4. 
+
+\\[ 
+  v(t) = 1 + 1 \cdot t \tag{1.10}
+\\]
+
+
+### Position vs. Time Graph
+Finally, let's bring it all together and try to fit a function to our position
+data (check equation 1.8 if you get stuck). 
+
 {{< desmos id="dcg-graph3" >}}
 <script>
-  var elt = document.getElementById('dcg-graph3');
-  var calculator = Desmos.GraphingCalculator(elt);
-  calculator.setExpressions([
-      { id:'dcg-p', latex:'p(t) = p_0 + v_0t + \\frac{1}{2}a_0t^2', 
+  var opts = dcgGraph1.opts
+  opts['yAxisLabel'] = 'Position'
+  var dcgGraph3 = {
+    elt: document.getElementById('dcg-graph3'),
+    opts: opts,
+    exprs: [ 
+      { id:'dcg-p',
+        latex:'p(t) = p_0 + v_0t + \\frac{1}{2}a_0t^2 \\left\\{0<t\\right\\}', 
         lineStyle: Desmos.Styles.DOTTED, 
-        secret: true},
-      {id:'dcg-slider-a_0', latex:'a_0=1', sliderBounds: {min: 0, max: 5, step: 1}, secret: true},
-      {id:'dcg-slider-v_0', latex:'v_0=1', sliderBounds: {min: 0, max: 5, step: 1}, secret: true},
-      {id:'dcg-slider-p_0', latex:'p_0=0', sliderBounds: {min: 0, max: 5, step: 1}, secret: true}
-    ]);
+        secret: true,
+      },
+      { id:'dcg-value-p_0',
+        latex:'p_0 = 0',
+        secret: true,
+      },
+      // value for v_0
+      dcgGraph2.exprs[1],
+      // value for a_0
+      dcgGraph1.exprs[1],
+      // show point (t_0, p_0)
+      { id: 'dcg-point-p_0',
+        latex: '(0, p_0)',
+        label: '`(t_0,\\ p_0)`',
+        showLabel: true,
+        labelSize: Desmos.LabelSizes.LARGE,
+        color: Desmos.Colors.BLACK,
+        secret: true,
+      },
+    ],
+  }
+  var calculator = Desmos.GraphingCalculator(dcgGraph3.elt, dcgGraph3.opts);
+  calculator.setMathBounds(dcgGraph1.bounds);
+  calculator.setExpressions(dcgGraph3.exprs);
 </script>
 {{< /desmos >}}
+
+Finally, using this last graphs and what we already know about about 
+\\( a_0 \\) and \\( v_0 \\) we can cast equation 1.8 as ...
+
+\\[
+  p(t) = 0\ + 1\ \cdot t + \frac{1}{2} \cdot 1\ \cdot t^2 \tag{1.11}
+\\]
+
+
+
+
+## Units
+It's great that we've managed to derive an accurate expression for the position
+of the train, but an expression about distance doesn't mean much without units.
+We've used three quantities with different units so far ...
+
+distance
+:   Describes where something is relative to a given point.
+
+velocity
+:   Describes the rate of change in position with respect to time. We can
+    calculate the average velocity of an object by subtracting its final
+    position \\( (p_f) \\) from its initial position \\( (p_0) \\) and 
+    dividing by the time in between.  
+
+    \\[ v_{avg} = \frac{p_f - p_0}{t_f - t_0}  \tag{1.12} \\]
+    
+
+acceleration
+:   Describes the rate of change in velocity with respect to time. We can
+    calculate the average acceleration of an object by subtracting its final
+    velocty \\( (v_f) \\) from its initial velocity \\( (v_0) \\) and dividing
+    by the time in between.
+
+    \\[ a_{avg} = \frac{v_f - v_0}{t_f - t_0} \tag{1.13} \\] 
+
+
+### Unit Equations
+The [SI base unit](https://en.wikipedia.org/wiki/SI_base_unit) for distance
+is the meter \\( (m) \\) and the SI base unit for time is the second 
+\\( (s) \\). Knowing this we can write what I like to call *unit equations*
+to quickly find the appropriate units for velocity and acceleration.
+
+We can use equation 1.12 to figure out the units for velocity.
+
+\\[ \text{Units}(v_{avg}) = \frac{ m - m }{ s - s} = \frac{m}{s} \tag{1.14} \\]
+
+Note that the math in equation 1.14 works a little differntly than you may
+have expected. If \\( m \\) and \\( s \\) represented numbers then 1.14 would
+lead us to \\( 0 / 0 \\) which is undefined. The important thing to remember
+is that **\\( m \\) and \\( s \\) represent units and not numbers.**
+
+The difference of two quantities in meters is another quantity in meters. For
+example ...
+
+\\[ 5\ m - 3\ m = 2\ m\\]
+
+If we drop all of the numbers we are left with a *unit equation* that tells us
+that 
+
+\\[ m - m = m\\]
+
+Now try and find the units for acceleration.
+
+
+### Use Units to Check an Equation
+> If your units come out wrong, then your equation is wrong. If your units 
+> are right, then you *might* be right.
+
+
+
+## Wrapping Up
+
+
+
+## Practice Problems
