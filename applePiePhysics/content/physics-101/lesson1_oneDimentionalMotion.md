@@ -103,18 +103,59 @@ position across time when the acceleration is zero!
 
 
 
-## Graphically Checking for the 1-D Motion Equation
-At the other end of the train. Another scientist is thinking a little bit
-differently. She's been dilligently plotting the position, velocity, and
-acceleration of the train while we wittled away at our calculations.
+## Graphically Checking the 1-D Motion Equation
+At the other end of the train. Another scientist has been thinking a bit
+differently. She noticed the train's change in velocity at about the same time
+we did, and ever since she's been carefully plotting the acceleration,
+velocity, and postion of the train across time. She's even gone one step
+further and summarized her results in the table below. Let's see how our
+formula compares with the data ....
 
-{{< desmos id="calculator" >}}
+### Acceleration vs. Time Graph: \\( a(t) = a_0 \\)
+{{< desmos id="dcg-graph1" >}}
 <script>
-  var elt = document.getElementById('calculator');
+  var dcgGraph1 = {
+    elt: document.getElementById('dcg-graph1'),
+    opts: { 
+      expressions: false,
+      xAxisLabel: 'Time',
+      yAxisLabel: 'Acceleration',
+    },
+    exprs: [
+      {id:'dcg-a', latex:'a(t) = a_0 \\left\\{0<t\\right\\}', lineStyle: Desmos.Styles.DOTTED, secret: true},
+      {id:'dcg-slider-a_0', latex:'a_0=1', sliderBounds: {min: 0, max: 5, step: 1}, secret: true},
+    ],
+  }
+  var calculator = Desmos.GraphingCalculator(dcgGraph1.elt, dcgGraph1.opts);
+  calculator.setExpressions(dcgGraph1.exprs);
+</script>
+{{< /desmos >}}
+
+### Velocity vs. Time Graph: \\( v(t) = v_0 + a_0t \\)
+{{< desmos id="dcg-graph2" >}}
+<script>
+  var elt = document.getElementById('dcg-graph2');
+  var calculator = Desmos.GraphingCalculator(elt, dcg_graph1Opts);
+  calculator.setExpressions([
+      {id:'dcg-v', latex:'v(t) = v_0 + a_0t', lineStyle: Desmos.Styles.DOTTED, secret: true},
+      {id:'dcg-slider-a_0', latex:'a_0=1', sliderBounds: {min: 0, max: 5, step: 1}, secret: true},
+      {id:'dcg-slider-v_0', latex:'v_0=1', sliderBounds: {min: 0, max: 5, step: 1}, secret: true},
+    ]);
+</script>
+{{< /desmos >}}
+
+### Position vs. Time Graph: \\( p(t) = p_0 + v_0t + \frac{1}{2}a_0t^2 \\)
+{{< desmos id="dcg-graph3" >}}
+<script>
+  var elt = document.getElementById('dcg-graph3');
   var calculator = Desmos.GraphingCalculator(elt);
   calculator.setExpressions([
-      {id:'dg-a', latex:'a(t)=a_0'},
-      {id:'slider-a_0', latex:'a_0=1', sliderBounds: {min: 0, max: 5, step: 1}}
+      { id:'dcg-p', latex:'p(t) = p_0 + v_0t + \\frac{1}{2}a_0t^2', 
+        lineStyle: Desmos.Styles.DOTTED, 
+        secret: true},
+      {id:'dcg-slider-a_0', latex:'a_0=1', sliderBounds: {min: 0, max: 5, step: 1}, secret: true},
+      {id:'dcg-slider-v_0', latex:'v_0=1', sliderBounds: {min: 0, max: 5, step: 1}, secret: true},
+      {id:'dcg-slider-p_0', latex:'p_0=0', sliderBounds: {min: 0, max: 5, step: 1}, secret: true}
     ]);
 </script>
 {{< /desmos >}}

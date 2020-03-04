@@ -27,6 +27,70 @@ provides us with the faculties to explore and imagine the otherwise unreachable 
 Rules schmules, but organization matters.
 
 
+### Desmos Conventions
+
+#### Desmos Shortcode
+The `desmos` shortcode can use the following named parameters:
+
+###### id (required)
+By convention should be of the form `dcg-<graphName>`. 
+This naming scheme ensures that it is easy to select all
+desmos elements via `*[class^="dcg-"]` in your CSS.
+
+###### width (optional)
+width attribute of the graph. Defaults to `width: 100%;`.
+
+###### height (optional)
+height attribute of the graph. Defaults to `height: 400px;`.
+
+
+#### Desmos API
+In a lot of your lessons you'll find yourself wanting to build up to an idea
+over several graphs. In order to prevent yourself from repeating code, it's
+better to store [Desmos Options][Desmos Options] and 
+[Desmos Expressions][Desmos Expressions] in a JavaScript object so they can be
+accessed and reused later.
+
+1.  Desmos graphs should have an html id of the form `dcg-<graphName>`. 
+
+2.  The corresponding JavaScript object that contains the information needed to
+    generate the graph should have a name of the form `dcg<GraphName>`. This
+    object should have the following properties:
+
+    *   `elt`:      div that will contain the graph.
+    *   `opts`:     [Desmos options][Desmos Options]. 
+    *   `exprs`:    [Desmos expressions][Desmos Expressions.]
+
+Here's an example which implements these conventions:
+```html5
+{{< desmos id="dcg-graph1" >}}
+<script>
+  var dcgGraph1 = {
+    elt: document.getElementById('dcg-graph1'),
+    opts: { 
+      expressions: false,
+      xAxisLabel: 'Time',
+      yAxisLabel: 'Acceleration',
+    },
+    exprs: [
+      {id:'dcg-a', latex:'a(t) = a_0 \\left\\{0<t\\right\\}', lineStyle: Desmos.Styles.DOTTED, secret: true},
+      {id:'dcg-slider-a_0', latex:'a_0=1', sliderBounds: {min: 0, max: 5, step: 1}, secret: true},
+    ],
+  }
+  var calculator = Desmos.GraphingCalculator(dcgGraph1.elt, dcgGraph1.opts);
+  calculator.setExpressions(dcgGraph1.exprs);
+</script>
+{{< /desmos >}}
+```
+
+More information about the Desmos API can be found at the
+[Desmos API Docs][Desmos API Docs].
+
+[Desmos Expressions]: https://www.desmos.com/api/v1.4/docs/index.html#document-expressions
+[Desmos Options]: https://www.desmos.com/api/v1.4/docs/index.html#document-calculator
+[Desmos API Docs]: https://www.desmos.com/api/v1.4/docs/index.html
+
+
 ### Filename Conventions
 *   Directories in the content folder should have names corresponding to those
     specified in the nav with all spaces replaced with hyphens.
