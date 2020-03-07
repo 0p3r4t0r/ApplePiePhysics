@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Physics-101s on Apple Pie Physics</title>
+    <link>https://0p3r4t0r.github.io/ApplePiePhysics/physics-101/</link>
+    <description>Recent content in Physics-101s on Apple Pie Physics</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://0p3r4t0r.github.io/ApplePiePhysics/physics-101/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Motion in One Dimension</title>
+      <link>https://0p3r4t0r.github.io/ApplePiePhysics/physics-101/lesson1_onedimentionalmotion/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://0p3r4t0r.github.io/ApplePiePhysics/physics-101/lesson1_onedimentionalmotion/</guid>
+      <description>A Mysterious Space Train One day we discovered a train traveling through the vast emptiness of space at at low speed. No one knows where it came from and no one knows where it&amp;rsquo;s going. We&amp;rsquo;ve sent a team of scientists to find out more about the train and they&amp;rsquo;ve been living on board for several weeks now.
+As far as everyone can tell the velocity of the train is constant and the track along which the train travels is perfectly straight.</description>
+    </item>
+    
+  </channel>
+</rss>
