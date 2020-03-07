@@ -1,4 +1,4 @@
-baseURL: https://applepiephysics.com
+baseURL: https://0p3r4t0r.github.io/ApplePiePhysics 
 languageCode: en-us
 defaultContentLanguage: en
 title: Apple Pie Physics 
@@ -6,6 +6,7 @@ theme: cupper-hugo-theme
 googleAnalytics: UA-123456789-1
 disqusShortname: yourdiscussshortname
 enableGitInfo: true
+publishDir: ../public
 
 taxonomies:
   tag: tags
