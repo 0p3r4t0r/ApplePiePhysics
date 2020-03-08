@@ -34,9 +34,6 @@ menu:
     - name: Physics 101
       url: /physics-101/
       weight: 2
-    - name: Brainstorms
-      url: /brainstorms/
-      weight: 0
 
 markup:
   defaultMarkdownHandler: goldmark
