@@ -1,0 +1,10 @@
+{{ if eq .Params.plotly true }}
+{{ printf "<!-- Load the Plotly API -->" | safeHTML }}
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<style>
+  .js-plotly-plot * {
+    background-color: transparent;
+    margin-top: 0;
+  }
+</style>
+{{ end }}

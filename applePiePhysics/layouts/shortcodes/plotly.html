@@ -1,0 +1,2 @@
+<div id="{{ .Get "id" }}" style="width: {{ with .Get "width" }}{{ . }}{{ else }}100%{{ end }}; height: {{ with .Get "height" }}{{ . }}{{ else }}100%{{ end }};"></div>
+{{ .Inner }}

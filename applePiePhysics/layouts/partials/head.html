@@ -33,6 +33,7 @@
   </style>
 
   {{ partial "desmos.html" . }}
+  {{ partial "plotly.html" . }}
 
   {{ $title := print .Title " | " .Site.Title }}
   {{ if .IsHome }}
