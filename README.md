@@ -1,21 +1,46 @@
 # Apple Pie Physics
 
-The name for this project is inspired by a quote from the 1980 television series Cosmos: A Personal Voyage.
+The name for this project is inspired by a quote from the 1980 television 
+series Cosmos: A Personal Voyage.
 
-"If you wish to make, an apple pie from scratch, you must first invent the universe."
--- Carl Sagan
+> If you wish to make, an apple pie from scratch, you must first invent the 
+> universe.
+>
+> Carl Sagan
 
 
 ## Knowledge Shrinks Time and Space
-While most of the cosmos remains beyond the reach of our lifetimes, the miracle of our minds
-provides us with the faculties to explore and imagine the otherwise unreachable cosmos.
+> When revisiting places we once frequented as children, it is not unusual to 
+> observe how much smaller everything seems. This experience has too often been
+> attributed to the physical differences between a child and an adult. In fact 
+> it has more to do with epistemological dimensions than with bodily 
+> dimensions: knowledge is hot water on wool. It shrinks time and space.
+> 
+> Mark Z. Danielewski - The House of Leaves
+ 
+The miracle of our minds provides us with the faculties to explore, imagine,
+and--if only to a slight degree--even comprehend the vastness of the universe.
+
+
+
+
+## Table of Contents
+This table of contents should reduce the time it takes to navigate this page.
+* [Tech Stack](#tech-stack)
+* [Shortcodes](#shortcodes)
+    * [Desmos Shortcode](#desmos-shortcode)
+    * [Plotly Shortcode](#plotly-shortcode)
+* [Conventions](#conventions)
+    * [Desmos API Conventions](#desmos-api-conventions)
+    * [Filenaming Conventions](#filenaming-conventions)
+    * [Processing Conventions](#processing-conventions)
 
 
 
 
 ## Tech Stack
 *   [Hugo: Static Site Generator](https://gohugo.io/)
-*   [Cupper Theme](https://themes.gohugo.io/cupper-hugo-theme/)
+*   [Cupper Theme][Cupper Theme]
 *   [Katex](https://katex.org/)
 *   [Processing](https://processing.org/)/[Processing.js](http://processingjs.org/)
 *   [Desmos Graphing API (Hopefully)](https://www.desmos.com/api/v1.4/docs/index.html)
@@ -23,14 +48,14 @@ provides us with the faculties to explore and imagine the otherwise unreachable 
 
 
 
-## Conventions
-Rules schmules, but organization matters.
+## Shortcodes 
+In addition to those provided by the [Cupper Theme][Cupper Theme] Apple Pie
+Physics adds some shortcodes for plotting via [Desmos][Desmos] or 
+[Plotly JS][Plotly JS].
 
-
-### Desmos Conventions
 
 #### Desmos Shortcode
-The `desmos` shortcode can use the following named parameters:
+Has the following named parameters:
 
 ###### id (required)
 By convention should be of the form `dcg-<graphName>`. 
@@ -44,7 +69,28 @@ width attribute of the graph. Defaults to `width: 100%;`.
 height attribute of the graph. Defaults to `height: 400px;`.
 
 
-#### Desmos API
+#### Plotly Shortcode
+Has the following named parameters:
+
+###### id (required)
+By convention should be of the form `dcg-<graphName>`. 
+This naming scheme ensures that it is easy to select all
+desmos elements via `*[class^="dcg-"]` in your CSS.
+
+###### width (optional)
+width attribute of the graph. Defaults to `width: 100%;`.
+
+###### height (optional)
+height attribute of the graph. Defaults to `height: 100%;`.
+
+
+
+
+## Conventions
+Rules schmules, but organization matters.
+
+
+#### Desmos API Conventions
 In a lot of your lessons you'll find yourself wanting to build up to an idea
 over several graphs. In order to prevent yourself from repeating code, it's
 better to store [Desmos Options][Desmos Options] and 
@@ -86,12 +132,8 @@ Here's an example which implements these conventions:
 More information about the Desmos API can be found at the
 [Desmos API Docs][Desmos API Docs].
 
-[Desmos Expressions]: https://www.desmos.com/api/v1.4/docs/index.html#document-expressions
-[Desmos Options]: https://www.desmos.com/api/v1.4/docs/index.html#document-calculator
-[Desmos API Docs]: https://www.desmos.com/api/v1.4/docs/index.html
 
-
-### Filename Conventions
+### Filenaming Conventions
 *   Directories in the content folder should have names corresponding to those
     specified in the nav with all spaces replaced with hyphens.
 
@@ -138,3 +180,12 @@ website must be written without any external libraries.
     int fps = 50;           // frames per second
     float spf = 1.0 / fps;  // seconds per frame
     ```
+
+
+
+[Cupper Theme]: https://themes.gohugo.io/cupper-hugo-theme/
+[Desmos]: https://www.desmos.com/
+[Desmos API Docs]: https://www.desmos.com/api/v1.4/docs/index.html
+[Desmos Expressions]: https://www.desmos.com/api/v1.4/docs/index.html#document-expressions
+[Desmos Options]: https://www.desmos.com/api/v1.4/docs/index.html#document-calculator
+[Plotly JS]: https://plot.ly/javascript/
