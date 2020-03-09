@@ -1,6 +1,7 @@
 ---
 title: "Motion in One Dimension"
 weight: 2
+desmos: true
 draft: false
 ---
 ## A Mysterious Space Train

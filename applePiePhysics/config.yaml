@@ -24,7 +24,6 @@ params:
   # For more date formats see https://gohugo.io/functions/format/
   dateFormat: Jan 2, 2006
   katex: true
-  desmos: true
 
 menu:
   nav:
@@ -34,6 +33,9 @@ menu:
     - name: Physics 101
       url: /physics-101/
       weight: 2
+    - name: Reference
+      url: /reference/
+      weight: 999
 
 markup:
   defaultMarkdownHandler: goldmark
